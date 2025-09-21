@@ -74,6 +74,24 @@ const initialMissions = {
       difficulty: "Hard",
       imageUrl: "https://images.unsplash.com/photo-1590393278948-00511e4836e5?q=80&w=2070&auto=format&fit=crop",
     },
+    {
+  id: 6,
+  title: "Compost Making",
+  category: "Sustainability",
+  description: "Learn to make compost from farm waste for organic fertilization.",
+  points: 90,
+  difficulty: "Easy",
+  imageUrl: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=2070&auto=format&fit=crop",
+},
+{
+  id: 7,
+  title: "Rainwater Harvesting",
+  category: "Water Conservation",
+  description: "Set up a rainwater harvesting system to save water for your crops.",
+  points: 120,
+  difficulty: "Medium",
+  imageUrl: "https://images.unsplash.com/photo-1464983953574-0892a716854b?q=80&w=2070&auto=format&fit=crop",
+},
   ],
   completed: [],
 };
@@ -151,6 +169,8 @@ export default function MissionListPage() {
       'Soil Nutrient Testing': '/mission-pages/soil-nutrient-testing',
       'Tractor Calibration Basics': '/mission-pages/tractor-calibration',
       'Polyhouse Vegetable Cultivation': '/mission-pages/polyhouse-vegetable',
+      'Compost Making': '/mission-pages/compost-making',
+      'Rainwater Harvesting': '/mission-pages/rainwater-harvesting',
     };
     let route = titleToRoute[selectedMission.title];
     if (route) {

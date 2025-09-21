@@ -1,5 +1,3 @@
-// Entry point for Express backend
-
 const express = require('express');
 const cors = require('cors');
 const connectDB = require('./config/db');

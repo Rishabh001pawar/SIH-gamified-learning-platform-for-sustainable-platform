@@ -36,6 +36,9 @@ import SoilNutrientTestingMission from './pages/mission-pages/SoilNutrientTestin
 import PolyhouseVegetableMission from './pages/mission-pages/PolyhouseVegetableMission';
 import DroneCropMonitoringMission from './pages/mission-pages/DroneCropMonitoringMission';
 import TractorCalibrationMission from './pages/mission-pages/TractorCalibrationMission';
+import CompostMakingMission from './pages/mission-pages/CompostMakingMission';
+import RainwaterHarvestingMission from './pages/mission-pages/RainwaterHarvestingMission';
+
 
 // --- NEW: Data for your article pages ---
 
@@ -102,6 +105,8 @@ function App() {
         <Route path="/mission-pages/polyhouse-vegetable" element={<PolyhouseVegetableMission />} />
         <Route path="/mission-pages/drone-crop-monitoring" element={<DroneCropMonitoringMission />} />
         <Route path="/mission-pages/tractor-calibration" element={<TractorCalibrationMission />} />
+        <Route path="/mission-pages/compost-making" element={<CompostMakingMission />} />
+        <Route path="/mission-pages/rainwater-harvesting" element={<RainwaterHarvestingMission />} />
       </Route>
       <Route path="/login" element={<LoginPage onLogin={handleLogin} />} />
       <Route path="/signup" element={<SignupPage />} />
