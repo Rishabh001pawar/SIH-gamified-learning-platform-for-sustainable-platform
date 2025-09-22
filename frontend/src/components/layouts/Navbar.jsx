@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useContext } from 'react';
+import { AppContext } from '../../context/AppContext';
 import { Link } from 'react-router-dom';
 import { 
   HiOutlineHome, HiOutlineAcademicCap, HiOutlineBolt, HiOutlineChartBar, HiOutlineGift, HiOutlineUserGroup,
@@ -11,8 +13,8 @@ function Navbar({ isLoggedIn, handleLogout }) {
   const [isProfileOpen, setProfileOpen] = useState(false);
   const [isLearningDropdownOpen, setLearningDropdownOpen] = useState(false);
   const profileRef = useRef(null);
-  const user = { name: "Prashant" };
-  const rewardCount = 3;
+  const { user } = useContext(AppContext);
+  // const rewardCount = 3;
 
   const handleLinkClick = () => setMobileMenuOpen(false);
 
@@ -87,17 +89,13 @@ function Navbar({ isLoggedIn, handleLogout }) {
           <div className="hidden md:flex items-center gap-4">
             {isLoggedIn ? (
               <>
-                <Link to="/rewards" className="relative p-2 rounded-full text-gray-500 hover:bg-gray-200 hover:text-emerald-600 transition">
-                  <HiOutlineGift className="h-6 w-6" />
-                  {rewardCount > 0 && <span className="absolute top-0 right-0 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-white text-[10px] font-bold">{rewardCount}</span>}
-                </Link>
                 <div className="relative" ref={profileRef}>
                   <button onClick={() => setProfileOpen(!isProfileOpen)} className="flex items-center gap-2 rounded-full text-left p-1 text-gray-600 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500">
                     <HiOutlineUserCircle className="h-8 w-8" />
                   </button>
                   {isProfileOpen && (
                     <div className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5">
-                      <div className="px-4 py-2 text-sm text-gray-700 border-b">Signed in as <br/><strong className="font-medium">{user.name}</strong></div>
+                      <div className="px-4 py-2 text-sm text-gray-700 border-b">Signed in as <br/><strong className="font-medium">{user?.name || 'User'}</strong></div>
                       <Link to="/profile" className="flex items-center gap-3 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"><HiOutlineUserCircle/> My Profile</Link>
                       <button onClick={handleLogout} className="w-full text-left flex items-center gap-3 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"><HiOutlineArrowRightOnRectangle/> Logout</button>
                     </div>

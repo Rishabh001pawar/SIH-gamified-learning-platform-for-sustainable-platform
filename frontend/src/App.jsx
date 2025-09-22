@@ -13,6 +13,7 @@ import LearningPage from './pages/LearningPage';
 import ProgressPage from './pages/ProgressPage';
 import PestPatrolGame from './games/PestPatrolGame';
 import TechBox from './pages/TechBox';
+import ProfilePage from './pages/ProfilePage';
 
 import Chatbot from './components/Chatbot'; // The new AI Chatbot
 import MissionListPage from './pages/MissionList';
@@ -84,7 +85,7 @@ function App() {
         <Route path="/games/pest-patrol" element={<PestPatrolGame />} />
         <Route path="/community" element={<CommunityPage />} />
         <Route path="/progress" element={<ProgressPage />} />
-        <Route path="/profile" element={<div>Profile Page</div>} />
+  <Route path="/profile" element={<ProfilePage />} />
         <Route path="/techbox" element={<TechBox />} />
         <Route path="/rewards" element={<TechBox />} />
         {/* --- Home Page Article Routes --- */}
