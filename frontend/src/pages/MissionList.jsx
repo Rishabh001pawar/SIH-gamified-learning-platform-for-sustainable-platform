@@ -1,29 +1,17 @@
 import React, { useState } from "react";
 import { HiMagnifyingGlass, HiFunnel, HiCheckCircle } from "react-icons/hi2";
-import MissionList from "../components/missions/MissionList";
-import PersonalizedQuestForm from "../components/missions/PersonalizedQuestForm";
 
-const bestPracticeMissions = [
-  {
-    id: 1,
-    title: "Use Organic Inputs",
-    description: "Switch to organic fertilizers and bio-pesticides for improved soil health.",
-    type: "Best Practice",
-  },
-  {
-    id: 2,
-    title: "Mixed Cropping",
-    description: "Plant at least two different crops in the same field to boost biodiversity.",
-    type: "Best Practice",
-  },
-  {
-    id: 3,
-    title: "Soil Health Management",
-    description: "Test soil and apply compost to maintain fertility.",
-    type: "Best Practice",
-  },
-];
+// Import local images
+import crop from "../assets/photo/crop.jpg";
+import drone1 from "../assets/photo/drone1.jpg";
+import irrigation1 from "../assets/photo/irrigation1.jpg";
+import tractor1 from "../assets/photo/tractor1.jpg";
+import plants from "../assets/photo/plants.jpg";
+import fertilisation from "../assets/photo/fertilisation.jpg";
+import field2 from "../assets/photo/field2.jpg";
 
+
+// Example usage: set imageUrl to imported image for local images
 // Dummy data with more details like tags and progress
 const initialMissions = {
   active: [],
@@ -36,7 +24,7 @@ const initialMissions = {
       description: "Learn to install and optimize a drip irrigation system for efficient water use and higher yields.",
       points: 100,
       difficulty: "Easy",
-      imageUrl: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?q=80&w=2070&auto=format&fit=crop",
+  imageUrl: irrigation1,
     },
     {
       id: 2,
@@ -45,7 +33,7 @@ const initialMissions = {
       description: "Monitor crops using drone technology for better yield and efficiency.",
       points: 150,
       difficulty: "Medium",
-      imageUrl: "https://images.unsplash.com/photo-1572295596956-23490334515a?q=80&w=2070&auto=format&fit=crop",
+  imageUrl: drone1,
     },
     {
       id: 3,
@@ -54,7 +42,7 @@ const initialMissions = {
       description: "Perform soil tests and understand how to interpret results for optimal fertilization.",
       points: 80,
       difficulty: "Easy",
-      imageUrl: "https://images.unsplash.com/photo-1563851086435-022212260f9b?q=80&w=2070&auto=format&fit=crop",
+  imageUrl: fertilisation,
     },
     {
       id: 4,
@@ -63,7 +51,7 @@ const initialMissions = {
       description: "Learn the basics of calibrating your tractor for optimal performance.",
       points: 70,
       difficulty: "Easy",
-      imageUrl: "https://images.unsplash.com/photo-1619719826894-89d6c4fd5739?w=600&auto=format&fit=crop&q=60",
+  imageUrl: tractor1,
     },
     {
       id: 5,
@@ -72,7 +60,7 @@ const initialMissions = {
       description: "Master the art of growing vegetables in a controlled polyhouse environment for year-round production.",
       points: 200,
       difficulty: "Hard",
-      imageUrl: "https://images.unsplash.com/photo-1590393278948-00511e4836e5?q=80&w=2070&auto=format&fit=crop",
+  imageUrl: plants,
     },
     {
   id: 6,
@@ -81,7 +69,7 @@ const initialMissions = {
   description: "Learn to make compost from farm waste for organic fertilization.",
   points: 90,
   difficulty: "Easy",
-  imageUrl: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=2070&auto=format&fit=crop",
+  imageUrl: crop,
 },
 {
   id: 7,
@@ -90,7 +78,7 @@ const initialMissions = {
   description: "Set up a rainwater harvesting system to save water for your crops.",
   points: 120,
   difficulty: "Medium",
-  imageUrl: "https://images.unsplash.com/photo-1464983953574-0892a716854b?q=80&w=2070&auto=format&fit=crop",
+  imageUrl: field2,
 },
   ],
   completed: [],
@@ -134,16 +122,13 @@ const MissionCard = ({ mission }) => (
 );
 
 export default function MissionListPage() {
-  const [personalizedMissions, setPersonalizedMissions] = useState([]);
   const [missions, setMissions] = useState(initialMissions);
   const [selectedMission, setSelectedMission] = useState(null);
   const [missionImage, setMissionImage] = useState(null);
   const [missionVideo, setMissionVideo] = useState(null);
   const [points, setPoints] = useState(0);
 
-  function handleAddPersonalizedQuest(quest) {
-    setPersonalizedMissions(prev => [...prev, quest]);
-  }
+
 
 
   function handleMissionClick(mission, type) {
